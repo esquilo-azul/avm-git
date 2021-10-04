@@ -1,0 +1,7 @@
+---
+- src_mode: '000000'
+  dst_mode: '100644'
+  src_sha1: '0000000000000000000000000000000000000000'
+  dst_sha1: f380aec0bd8dd777edac43b11636e46cad04273a
+  status: A
+  path: nomes.txt

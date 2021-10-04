@@ -4,8 +4,8 @@ require 'eac_ruby_utils/core_ext'
 
 module Avm
   module Git
-    require_sub __FILE__
-
-    DEFAULT_REMOTE_NAME = 'origin'
+    module Organize
+      require_sub __FILE__
+    end
   end
 end
