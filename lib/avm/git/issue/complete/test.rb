@@ -28,7 +28,7 @@ module Avm
 
           def test_performer
             ::Avm::Sources::Tests::Builder
-              .new(::Avm::Sources::Base.new(@git))
+              .new(::Avm::Registry.sources.detect(@git))
               .include_main(true)
               .include_subs(true)
               .performer
