@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+require 'avm/git/scms/git_subrepo'
 require 'avm/scms/base'
 require 'eac_ruby_utils/core_ext'
 
@@ -54,6 +55,13 @@ module Avm
         def reset_and_commit(commit_to_reset, message)
           git_repo.command('reset', '--soft', commitize(commit_to_reset).git_commit.id).execute!
           commit_dirty(message)
+        end
+
+        # @return [Enumerable<Avm::Git::Scms::GitSubrepo>]
+        def subs
+          git_repo.subrepos.map do |subrepo|
+            ::Avm::Git::Scms::GitSubrepo.new(subrepo.subpath.expand_path(path))
+          end
         end
 
         def valid?
