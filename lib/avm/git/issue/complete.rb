@@ -10,7 +10,9 @@ module Avm
         enable_simple_cache
         enable_speaker
 
-        attr_reader :dir, :skip_validations
+        BRANCH_NAME_ISSUE_ID_PATTERN =
+
+          attr_reader :dir, :skip_validations
 
         def initialize(options)
           consumer = ::EacRubyUtils::OptionsConsumer.new(options)
@@ -34,8 +36,12 @@ module Avm
         end
 
         def issue_id
-          m = branch_name.match(/\A#{Regexp.quote('issue_')}(\d+)\z/)
-          m ? m[1].to_i : nil
+          issue_id_parser.parse(branch_name)
+        end
+
+        # @return [EacRubyUtils::RegexpParser]
+        def issue_id_parser
+          /\A#{Regexp.quote('issue_')}(\d+)\z/.to_parser { |m| m[1].to_i }
         end
 
         private
