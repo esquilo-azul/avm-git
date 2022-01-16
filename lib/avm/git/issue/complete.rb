@@ -10,14 +10,13 @@ module Avm
         enable_simple_cache
         enable_speaker
 
-        attr_reader :skip_validations
+        attr_reader :dir, :skip_validations
 
         def initialize(options)
           consumer = ::EacRubyUtils::OptionsConsumer.new(options)
-          dir, @skip_validations = consumer.consume_all(:dir, :skip_validations)
+          @dir, @skip_validations = consumer.consume_all(:dir, :skip_validations)
           validate_skip_validations
           consumer.validate
-          @git = ::Avm::Launcher::Git::Base.new(dir)
         end
 
         def start_banner
@@ -42,8 +41,12 @@ module Avm
         private
 
         def git(args, exit_outputs = {})
-          r = @git.execute!(args, exit_outputs: exit_outputs)
+          r = launcher_git.execute!(args, exit_outputs: exit_outputs)
           r.is_a?(String) ? r.strip : r
+        end
+
+        def launcher_git_uncached
+          ::Avm::Launcher::Git::Base.new(dir)
         end
       end
     end

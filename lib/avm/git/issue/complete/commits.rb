@@ -15,7 +15,7 @@ module Avm
             return [] unless branch_hash && follow_master?
 
             interval = remote_master_hash ? "#{remote_master_hash}..#{branch_hash}" : branch_hash
-            @git.execute!('rev-list', interval).each_line.map(&:strip)
+            launcher_git.execute!('rev-list', interval).each_line.map(&:strip)
           end
 
           def bifurcations_result
@@ -32,8 +32,8 @@ module Avm
           end
 
           def commit_parents(commit)
-            @git.execute!('log', '--pretty=%P', '-n', '1', commit).split(' ').map(&:strip)
-                .select(&:present?)
+            launcher_git.execute!('log', '--pretty=%P', '-n', '1', commit).split(' ').map(&:strip)
+                        .select(&:present?)
           end
         end
       end

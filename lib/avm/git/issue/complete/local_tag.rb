@@ -26,7 +26,7 @@ module Avm
           end
 
           def tag_hash
-            @git.rev_parse(tag)
+            launcher_git.rev_parse(tag)
           end
 
           def create_tag

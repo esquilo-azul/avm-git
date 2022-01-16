@@ -45,7 +45,7 @@ module Avm
           private
 
           def dry_push_execution_result
-            r = @git.execute(dry_push_args)
+            r = launcher_git.execute(dry_push_args)
             message = if r.fetch(:exit_code).zero?
                         'ok'
                       else

@@ -8,11 +8,11 @@ module Avm
       class Complete
         module LocalBranch
           def branch_uncached
-            @git.current_branch
+            launcher_git.current_branch
           end
 
           def branch_hash_uncached
-            @git.rev_parse("refs/heads/#{branch}")
+            launcher_git.rev_parse("refs/heads/#{branch}")
           end
 
           def branch_name
@@ -38,7 +38,7 @@ module Avm
           end
 
           def follow_master?
-            remote_master_hash ? @git.descendant?(branch_hash, remote_master_hash) : true
+            remote_master_hash ? launcher_git.descendant?(branch_hash, remote_master_hash) : true
           end
 
           def remove_local_branch

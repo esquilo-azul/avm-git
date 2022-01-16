@@ -24,7 +24,7 @@ module Avm
           end
 
           def remote_hashs_uncached
-            @git.remote_hashs(remote_name)
+            launcher_git.remote_hashs(remote_name)
           end
         end
       end

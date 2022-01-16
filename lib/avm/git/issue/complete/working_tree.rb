@@ -10,7 +10,7 @@ module Avm
           end
 
           def clean_workspace?
-            @git.dirty_files.none?
+            launcher_git.dirty_files.none?
           end
         end
       end
