@@ -29,6 +29,8 @@ module Avm
 
           def validation_result
             parent.send("#{key}_result")
+          rescue ::RuntimeError => e
+            ::Avm::Result.error("error raised: #{e.message}")
           end
         end
       end
