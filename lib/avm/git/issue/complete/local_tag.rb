@@ -18,7 +18,7 @@ module Avm
 
           def delete_tag
             info 'Removendo tag...'
-            git(['tag', '-d', branch_name])
+            git_execute(['tag', '-d', branch_name])
           end
 
           def tag
@@ -30,7 +30,7 @@ module Avm
           end
 
           def create_tag
-            git(['tag', branch_name, branch_hash])
+            git_execute(['tag', branch_name, branch_hash])
           end
         end
       end

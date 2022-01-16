@@ -20,7 +20,7 @@ module Avm
               info 'PUSH: Nada a enviar'
             else
               info "PUSH: enviando \"#{pushs}\"..."
-              git(%w[push origin] + pushs)
+              git_execute(%w[push origin] + pushs)
             end
           end
 

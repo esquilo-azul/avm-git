@@ -44,8 +44,8 @@ module Avm
           def remove_local_branch
             info 'Removendo branch local...'
             bn = branch_name
-            git(['checkout', branch_hash])
-            git(['branch', '-D', bn])
+            git_execute(['checkout', branch_hash])
+            git_execute(['branch', '-D', bn])
           end
         end
       end

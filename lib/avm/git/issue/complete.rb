@@ -40,7 +40,7 @@ module Avm
 
         private
 
-        def git(args, exit_outputs = {})
+        def git_execute(args, exit_outputs = {})
           r = launcher_git.execute!(args, exit_outputs: exit_outputs)
           r.is_a?(String) ? r.strip : r
         end

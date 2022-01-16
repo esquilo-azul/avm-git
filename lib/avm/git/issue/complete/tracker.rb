@@ -19,7 +19,7 @@ module Avm
           end
 
           def branch_short_hash
-            git(['log', '--pretty=format:%h', '-1', '-q', branch_hash])
+            git_execute(['log', '--pretty=format:%h', '-1', '-q', branch_hash])
           end
         end
       end
