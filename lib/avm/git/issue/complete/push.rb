@@ -12,13 +12,7 @@ module Avm
           def dry_push_result
             return ::Avm::Result.error('Nothing to push') if pushs.empty?
 
-            r = @git.execute(dry_push_args)
-            message = if r.fetch(:exit_code).zero?
-                        'ok'
-                      else
-                        r.fetch(:stderr) + "\n#{::Shellwords.join(dry_push_args)}"
-                      end
-            ::Avm::Result.success_or_error(r.fetch(:exit_code).zero?, message)
+            dry_push_execution_result
           end
 
           def push
@@ -46,6 +40,18 @@ module Avm
             return nil unless !remote_tag_hash || remote_tag_hash != branch_hash
 
             "#{branch_hash}:#{tag}"
+          end
+
+          private
+
+          def dry_push_execution_result
+            r = @git.execute(dry_push_args)
+            message = if r.fetch(:exit_code).zero?
+                        'ok'
+                      else
+                        r.fetch(:stderr) + "\n#{::Shellwords.join(dry_push_args)}"
+                      end
+            ::Avm::Result.success_or_error(r.fetch(:exit_code).zero?, message)
           end
         end
       end
