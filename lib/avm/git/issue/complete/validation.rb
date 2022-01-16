@@ -11,6 +11,8 @@ module Avm
           enable_simple_cache
           common_constructor :parent, :key, :label
 
+          SKIPPED_RESULT_MESSAGE = 'skipped'
+
           def skip?
             parent.skip_validations.include?(key)
           end
@@ -18,11 +20,15 @@ module Avm
           private
 
           def result_uncached
-            if skip?
-              ::Avm::Result.neutral('skipped')
-            else
-              parent.send("#{key}_result")
-            end
+            skip? ? skipped_result : validation_result
+          end
+
+          def skipped_result
+            ::Avm::Result.neutral(SKIPPED_RESULT_MESSAGE)
+          end
+
+          def validation_result
+            parent.send("#{key}_result")
           end
         end
       end
