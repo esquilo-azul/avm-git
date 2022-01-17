@@ -33,7 +33,7 @@ module Avm
           end
 
           def remove_branch_push
-            remote_branch_hash ? ":refs/heads/#{branch}" : nil
+            remote_branch_hash ? ":refs/heads/#{branch.name}" : nil
           end
 
           def tag_push

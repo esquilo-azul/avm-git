@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require 'avm/tools/core_ext'
+require 'eac_git/local'
 
 module Avm
   module Git
@@ -36,7 +37,7 @@ module Avm
         end
 
         def issue_id
-          issue_id_parser.parse(branch_name)
+          branch ? issue_id_parser.parse(branch_name) : nil
         end
 
         # @return [EacRubyUtils::RegexpParser]
@@ -45,6 +46,11 @@ module Avm
         end
 
         private
+
+        # @return [EacGit::Local]
+        def eac_git_uncached
+          ::EacGit::Local.new(dir)
+        end
 
         def git_execute(args, exit_outputs = {})
           r = launcher_git.execute!(args, exit_outputs: exit_outputs)

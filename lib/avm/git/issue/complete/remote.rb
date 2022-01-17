@@ -10,7 +10,7 @@ module Avm
           end
 
           def remote_branch_hash
-            remote_hashs["refs/heads/#{branch}"]
+            remote_hashs["refs/heads/#{branch.name}"]
           end
 
           def remote_tag_hash

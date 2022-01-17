@@ -7,16 +7,21 @@ module Avm
     module Issue
       class Complete
         module LocalBranch
+          NO_CURRENT_BRANCH_NAME = 'none'
+
+          # Retrieves the current local branch.
+          #
+          # @return [EacGit::Local::Branch, nil]
           def branch_uncached
-            launcher_git.current_branch
+            eac_git.current_branch
           end
 
           def branch_hash_uncached
-            launcher_git.rev_parse("refs/heads/#{branch}")
+            branch.if_present(&:current_commit_id)
           end
 
           def branch_name
-            branch.split('/')[-1]
+            branch.if_present(NO_CURRENT_BRANCH_NAME, &:name)
           end
 
           def branch_name_result
@@ -42,6 +47,8 @@ module Avm
           end
 
           def remove_local_branch
+            return unless branch
+
             info 'Removendo branch local...'
             bn = branch_name
             git_execute(['checkout', branch_hash])
