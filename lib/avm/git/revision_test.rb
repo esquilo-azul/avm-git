@@ -77,7 +77,7 @@ module Avm
       end
 
       def successful_uncached
-        if options.fetch(:no_cache) || !successful_cache.cached?
+        if options.fetch(:no_cache) || !successful_cache.stored?
           checkout_revision
           run_test
         end
