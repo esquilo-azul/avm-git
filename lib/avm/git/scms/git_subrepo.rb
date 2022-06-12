@@ -8,9 +8,7 @@ module Avm
   module Git
     module Scms
       class GitSubrepo < ::Avm::Scms::Base
-        def commit_if_change(_message)
-          nyi
-        end
+        delegate :commit_if_change, to: :parent_scm
 
         def update
           git_subrepo.command('clean').execute!
