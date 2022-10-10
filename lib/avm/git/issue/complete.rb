@@ -58,7 +58,7 @@ module Avm
         end
 
         def launcher_git_uncached
-          ::Avm::Launcher::Git::Base.new(dir)
+          ::Avm::Git::Launcher::Base.new(dir)
         end
       end
     end
