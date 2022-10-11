@@ -3,7 +3,7 @@
 require 'avm/git/launcher/mirror_update'
 require 'avm/launcher/instances/error'
 require 'avm/git/vendor/github'
-require 'avm/projects/stereotypes/git/publish'
+require 'avm/git/launcher_stereotypes/git/publish'
 
 module Avm
   module Git
@@ -15,7 +15,7 @@ module Avm
       class WarpBase < ::Avm::Launcher::Paths::Real
         include ::EacRubyUtils::SimpleCache
 
-        TARGET_REMOTE = ::Avm::Projects::Stereotypes::Git::Publish::PUBLISH_GIT_REMOTE_NAME
+        TARGET_REMOTE = ::Avm::Git::LauncherStereotypes::Git::Publish::PUBLISH_GIT_REMOTE_NAME
 
         def initialize(instance)
           @instance = instance
