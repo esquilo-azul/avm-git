@@ -2,6 +2,7 @@
 
 require 'avm/git/launcher_stereotypes/git'
 require 'avm/git/launcher_stereotypes/git_subrepo'
+require 'avm/git/launcher_stereotypes/git_subtree'
 require 'eac_ruby_utils/core_ext'
 
 module Avm
@@ -9,7 +10,8 @@ module Avm
     module LauncherStereotypes
       class Provider
         STEREOTYPES = [::Avm::Git::LauncherStereotypes::Git,
-                       ::Avm::Git::LauncherStereotypes::GitSubrepo].freeze
+                       ::Avm::Git::LauncherStereotypes::GitSubrepo,
+                       ::Avm::Git::LauncherStereotypes::GitSubtree].freeze
 
         def all
           STEREOTYPES
