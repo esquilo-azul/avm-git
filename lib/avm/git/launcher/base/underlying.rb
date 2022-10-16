@@ -21,7 +21,11 @@ module Avm
 
           %w[execute execute! system!].each do |exec_type|
             define_method exec_type do |*args|
-              command(*args).send(exec_type)
+              begin
+                command(*args).send(exec_type)
+              rescue ::EacRubyUtils::Envs::Command::ExecError
+                raise ::Avm::Git::Launcher::Error
+              end
             end
           end
 
