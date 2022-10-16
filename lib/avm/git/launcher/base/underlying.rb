@@ -19,16 +19,10 @@ module Avm
             r
           end
 
-          def execute(*args)
-            command(*args).execute
-          end
-
-          def execute!(*args)
-            command(*args).execute!
-          end
-
-          def system!(*args)
-            command(*args).system!
+          %w[execute execute! system!].each do |exec_type|
+            define_method exec_type do |*args|
+              command(*args).send(exec_type)
+            end
           end
 
           def init
