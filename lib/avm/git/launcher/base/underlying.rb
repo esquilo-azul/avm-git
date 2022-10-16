@@ -19,7 +19,7 @@ module Avm
             r
           end
 
-          %w[execute execute! system!].each do |exec_type|
+          %w[execute execute! system system!].each do |exec_type|
             define_method exec_type do |*args|
               begin
                 command(*args).send(exec_type)
