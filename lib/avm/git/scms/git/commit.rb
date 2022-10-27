@@ -8,6 +8,7 @@ module Avm
     module Scms
       class Git < ::Avm::Scms::Base
         class Commit < ::Avm::Scms::Commit
+          require_sub __FILE__, include_modules: true
           common_constructor :git_scm, :git_commit do
             git_commit.assert_argument(::EacGit::Local::Commit, 'git_commit')
           end
