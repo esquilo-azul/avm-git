@@ -12,6 +12,7 @@ module Avm
             git_commit.assert_argument(::EacGit::Local::Commit, 'git_commit')
           end
           delegate :git_repo, to: :git_scm
+          delegate :id, to: :git_commit
 
           # @return [Array<Pathname>]
           def changed_files
