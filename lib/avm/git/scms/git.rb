@@ -18,7 +18,7 @@ module Avm
         end
 
         # @return [Avm::Git::Scms::Git::Commit,nil]
-        def commitize(source)
+        def commit(source)
           if source.is_a?(::Avm::Git::Scms::Git::Commit)
             return source if source.git_repo == self
 
@@ -36,7 +36,7 @@ module Avm
           git_repo.command('add', '.').execute!
           git_repo.command('commit', '-m',
                            message.call_if_proc.if_present(COMMIT_DIRTY_DEFAULT_MESSAGE)).execute!
-          commitize(git_repo.head)
+          commit(git_repo.head)
         end
 
         # @return [Avm::Git::Scms::Git::Commit,nil]
@@ -53,7 +53,7 @@ module Avm
 
         # @return [Avm::Git::Scms::Git::Commit]
         def reset_and_commit(commit_to_reset, message)
-          git_repo.command('reset', '--soft', commitize(commit_to_reset).git_commit.id).execute!
+          git_repo.command('reset', '--soft', commit(commit_to_reset).git_commit.id).execute!
           commit_dirty(message)
         end
 
