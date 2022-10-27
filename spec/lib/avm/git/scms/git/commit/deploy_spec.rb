@@ -1,10 +1,9 @@
 # frozen_string_literal: true
 
-require 'avm/git/commit'
-require 'avm/git/commit/deploy'
+require 'avm/git/scms/git'
 require 'eac_ruby_utils/fs/temp'
 
-RSpec.describe ::Avm::Git::Commit::Deploy, git: true do
+RSpec.describe ::Avm::Git::Scms::Git::Commit::Deploy, git: true do
   class << self
     FROM_DEPLOY = %w[a.txt b.txt c.txt appended].freeze # rubocop:disable RSpec/LeakyConstantDeclaration
     NOT_FROM_DEPLOY = %w[to_be_removed].freeze # rubocop:disable RSpec/LeakyConstantDeclaration
@@ -58,7 +57,7 @@ RSpec.describe ::Avm::Git::Commit::Deploy, git: true do
     r
   end
 
-  let(:commit) { ::Avm::Git::Commit.new(git, commit_sha1) }
+  let(:commit) { ::Avm::Git::Scms::Git.new(git.root_path).commit(commit_sha1) }
   let(:variables_source_class) do
     ::Class.new do
       attr_reader :abc
