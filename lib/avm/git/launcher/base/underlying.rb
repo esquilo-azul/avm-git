@@ -23,7 +23,7 @@ module Avm
             define_method exec_type do |*args|
               begin
                 command(*args).send(exec_type)
-              rescue ::EacRubyUtils::Envs::Command::ExecError
+              rescue ::EacRubyUtils::Envs::ExecutionError
                 raise ::Avm::Git::Launcher::Error
               end
             end
