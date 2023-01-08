@@ -8,7 +8,8 @@ module Avm
   module Git
     module Scms
       class GitSubrepo < ::Avm::Scms::Base
-        delegate :commit_if_change, to: :parent_scm
+        delegate :changed_files, :commit_if_change, :current_milestone_base_commit, :interval,
+                 :head_commit, :run_commit, to: :parent_scm
 
         def update
           git_subrepo.command('clean').execute!
