@@ -29,7 +29,7 @@ module Avm
               'commit', '-m',
               message.call_if_proc.if_present(COMMIT_DIRTY_DEFAULT_MESSAGE)
             ).execute!
-            commit(git_repo.head)
+            head_commit
           end
 
           # @return [Avm::Git::Scms::Git::Commit,nil]
@@ -38,6 +38,11 @@ module Avm
             tracker.start
             yield
             tracker.stop
+          end
+
+          # @return [Avm::Git::Scms::Git::Commit]
+          def head_commit
+            commit(git_repo.head)
           end
 
           # @return [Avm::Git::Scms::Git::Commit]
