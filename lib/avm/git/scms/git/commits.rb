@@ -11,7 +11,7 @@ module Avm
           # @return [Avm::Git::Scms::Git::Commit,nil]
           def commit(source)
             if source.is_a?(::Avm::Git::Scms::Git::Commit)
-              return source if source.git_repo == self
+              return source if source.git_repo == git_repo
 
               raise 'Not same Git repository'
             end
