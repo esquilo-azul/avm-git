@@ -21,6 +21,13 @@ module Avm
           @git_repo ||= ::EacGit::Local.new(path)
         end
 
+        # @param from [Avm::Git::Scms::Git::Commit]
+        # @param to [Avm::Git::Scms::Git::Commit]
+        # @return [Avm::Git::Scms::Git::Interval]
+        def interval(from, to)
+          ::Avm::Git::Scms::Git::Interval.new(self, from, to)
+        end
+
         # @return [Enumerable<Avm::Git::Scms::GitSubrepo>]
         def subs
           git_repo.subrepos.map do |subrepo|
