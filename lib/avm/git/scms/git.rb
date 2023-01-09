@@ -8,7 +8,7 @@ module Avm
   module Git
     module Scms
       class Git < ::Avm::Scms::Base
-        require_sub __FILE__
+        require_sub __FILE__, include_modules: true
         include ::Comparable
 
         COMMIT_DIRTY_DEFAULT_MESSAGE = 'Dirty files.'
