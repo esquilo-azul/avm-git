@@ -15,9 +15,16 @@ module Avm
           delegate :git_repo, to: :git_scm
           delegate :id, to: :git_commit
 
+          FIXUP_SUBJECT_PATTERN = /\Afixup\!/.freeze
+
           # @return [Array<Pathname>]
           def changed_files
             git_commit.changed_files.map { |cf| cf.path.to_pathname }
+          end
+
+          # @return [Boolean]
+          def fixup?
+            FIXUP_SUBJECT_PATTERN.match?(git_commit.subject)
           end
 
           # @param other [Avm::Git::Scms::Git::Commit]
