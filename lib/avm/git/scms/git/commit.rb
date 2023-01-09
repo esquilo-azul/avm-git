@@ -50,6 +50,9 @@ module Avm
             %w[.gitrepo .gitmodules].any? { |file| file.include?(path.basename.to_path) }
           end
 
+          # @return [String]
+          delegate :subject, to: :git_commit
+
           private
 
           def validate_clean_and_head
