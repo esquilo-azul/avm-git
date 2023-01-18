@@ -10,7 +10,7 @@ module Avm
         enable_abstract_methods
 
         delegate :changed_files, :commit_if_change, :current_milestone_base_commit, :interval,
-                 :head_commit, :run_commit, to: :parent_scm
+                 :head_commit, :reset_and_commit, :run_commit, to: :parent_scm
       end
     end
   end
