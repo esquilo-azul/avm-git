@@ -1,16 +1,13 @@
 # frozen_string_literal: true
 
-require 'avm/scms/base'
+require 'avm/git/scms/git_sub_base'
 require 'eac_git/local'
 require 'eac_ruby_utils/core_ext'
 
 module Avm
   module Git
     module Scms
-      class GitSubrepo < ::Avm::Scms::Base
-        delegate :changed_files, :commit_if_change, :current_milestone_base_commit, :interval,
-                 :head_commit, :run_commit, to: :parent_scm
-
+      class GitSubrepo < ::Avm::Git::Scms::GitSubBase
         def update
           git_subrepo.command('clean').execute!
           git_subrepo.command('pull').execute!
