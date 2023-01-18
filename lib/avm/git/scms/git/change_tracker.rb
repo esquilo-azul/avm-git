@@ -7,7 +7,7 @@ module Avm
     module Scms
       class Git < ::Avm::Scms::Base
         class ChangeTracker
-          common_constructor :git_scm, :message
+          common_constructor :git_scm, :commit_info
           attr_reader :starting_commit
           delegate :git_repo, to: :git_scm
 
@@ -22,7 +22,7 @@ module Avm
             git_scm.commit_dirty
             return nil if starting_commit == git_repo.head
 
-            git_scm.reset_and_commit(starting_commit, message)
+            git_scm.reset_and_commit(starting_commit, commit_info)
           end
 
           private
