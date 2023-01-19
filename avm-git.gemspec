@@ -10,7 +10,7 @@ Gem::Specification.new do |s|
   s.authors     = ['Put here the authors']
   s.summary     = 'Put here de description.'
 
-  s.files = Dir['{lib}/**/*']
+  s.files = Dir['{lib,locale}/**/*']
 
   s.add_dependency 'avm', '~> 0.61'
   s.add_dependency 'avm-files', '~> 0.6'
