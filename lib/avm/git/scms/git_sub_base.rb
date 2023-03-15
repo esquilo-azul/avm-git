@@ -11,6 +11,8 @@ module Avm
 
         delegate :changed_files, :commit_if_change, :current_milestone_base_commit, :interval,
                  :head_commit, :reset_and_commit, :run_commit, to: :parent_scm
+
+        require_sub __FILE__
       end
     end
   end
