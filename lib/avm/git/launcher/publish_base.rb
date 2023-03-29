@@ -15,6 +15,8 @@ module Avm
         CHECKERS = %w[remote_url remote_fetch publish_remote_no_exist remote_equal remote_following
                       local_following].freeze
 
+        DEFAULT_REMOTE_REF = 'master'
+
         REMOTE_UNAVAILABLE_MESSAGES = ['could not resolve host', 'connection timed out',
                                        'no route to host'].map(&:downcase).freeze
 
@@ -108,7 +110,7 @@ module Avm
 
         def remote_sha_uncached
           remote_fetch
-          b = sgit.git.branches["#{remote_name}/master"]
+          b = sgit.git.branches["#{remote_name}/#{remote_ref}"]
           b ? b.gcommit.sha : nil
         end
 
@@ -118,6 +120,11 @@ module Avm
 
         def remote_name
           ::Avm::Git::Launcher::WarpBase::TARGET_REMOTE
+        end
+
+        # @return [String]
+        def remote_ref
+          DEFAULT_REMOTE_REF
         end
       end
     end
