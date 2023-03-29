@@ -11,9 +11,11 @@ module Avm
         require_sub __FILE__
         include Avm::Launcher::Stereotype
 
+        CONFIG_SUBPATH = '.gitrepo'
+
         class << self
           def match?(path)
-            File.exist?(path.real.subpath('.gitrepo')) && subrepo_url(path.real) != 'none'
+            File.exist?(path.real.subpath(CONFIG_SUBPATH)) && subrepo_url(path.real) != 'none'
           end
 
           def color
@@ -21,7 +23,7 @@ module Avm
           end
 
           def subrepo_url(path)
-            File.read(path.subpath('.gitrepo')).each_line do |l|
+            File.read(path.subpath(CONFIG_SUBPATH)).each_line do |l|
               m = /remote\s*=\s(.+)/.match(l)
               return m[1] if m
             end
