@@ -19,6 +19,11 @@ module Avm
           def config
             ::EacGit::Local::Subrepo::Config.from_file(config_path)
           end
+
+          # @return [String]
+          def remote_ref
+            config.remote_branch || super
+          end
         end
       end
     end
