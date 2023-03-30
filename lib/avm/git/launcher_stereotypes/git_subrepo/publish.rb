@@ -14,6 +14,11 @@ module Avm
               ::Avm::Git::LauncherStereotypes::GitSubrepo::CONFIG_SUBPATH
             )
           end
+
+          # @return [EacGit::Local::Subrepo::Config]
+          def config
+            ::EacGit::Local::Subrepo::Config.from_file(config_path)
+          end
         end
       end
     end
