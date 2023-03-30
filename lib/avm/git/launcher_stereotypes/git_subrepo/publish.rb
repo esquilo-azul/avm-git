@@ -7,6 +7,13 @@ module Avm
     module LauncherStereotypes
       class GitSubrepo
         class Publish < ::Avm::Git::Launcher::PublishBase
+          # @return [Pathname]
+          def config_path
+            instance.parent.warped.to_pathname.join(
+              "./#{instance.to_parent_path}",
+              ::Avm::Git::LauncherStereotypes::GitSubrepo::CONFIG_SUBPATH
+            )
+          end
         end
       end
     end
