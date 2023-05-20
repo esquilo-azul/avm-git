@@ -48,7 +48,7 @@ module Avm
           end
 
           def reset
-            scm.git_repo.command('reset', '--soft', 'HEAD').execute!
+            scm.git_repo.command('reset', 'HEAD').execute!
           end
         end
       end
