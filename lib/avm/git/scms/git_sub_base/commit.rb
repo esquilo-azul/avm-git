@@ -9,9 +9,7 @@ module Avm
     module Scms
       class GitSubBase < ::Avm::Scms::Base
         class Commit < ::Avm::Scms::Commit
-          common_constructor :scm, :parent_commit do
-            # parent_commit.assert_argument(::Avm::Git::Scms::Git::Commit, 'parent_commit')
-          end
+          common_constructor :scm, :parent_commit
 
           delegate :deploy_to_env_path, :fixup?, :id, :merge_with, :reword, :scm_file?, :subject,
                    :to_s, to: :parent_commit
