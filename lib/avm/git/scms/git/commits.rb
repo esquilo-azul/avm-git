@@ -22,20 +22,6 @@ module Avm
 
           # @param commit_info [Avm::Scms::CommitInfo]
           # @return [Avm::Git::Scms::Git::Commit,nil]
-          def commit_dirty(commit_info = nil)
-            return nil unless git_repo.dirty?
-
-            commit_info = ::Avm::Scms::CommitInfo.assert(commit_info)
-            commit_info = commit_info.message(COMMIT_DIRTY_DEFAULT_MESSAGE) if
-              commit_info.message.blank?
-
-            git_repo.command('add', '.').execute!
-            run_commit(commit_info)
-            head_commit
-          end
-
-          # @param commit_info [Avm::Scms::CommitInfo]
-          # @return [Avm::Git::Scms::Git::Commit,nil]
           def commit_if_change(commit_info = nil)
             tracker = ::Avm::Git::Scms::Git::ChangeTracker.new(self, commit_info)
             tracker.start
