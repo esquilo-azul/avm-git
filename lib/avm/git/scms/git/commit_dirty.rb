@@ -17,7 +17,6 @@ module Avm
           def result
             return nil unless git_repo.dirty?
 
-            git_repo.command('add', '.').execute!
             run_commit(asserted_commit_info)
             head_commit
           end
@@ -27,7 +26,7 @@ module Avm
           def asserted_commit_info
             r = ::Avm::Scms::CommitInfo.assert(commit_info)
             r = r.message(COMMIT_DIRTY_DEFAULT_MESSAGE) if r.message.blank?
-            r
+            git_repo.dirty_files.inject(r) { |a, e| a.path(e.absolute_path) }
           end
         end
       end
