@@ -17,13 +17,17 @@ module Avm
           def result
             return nil unless git_repo.dirty?
 
-            commit_info = ::Avm::Scms::CommitInfo.assert(commit_info)
-            commit_info = commit_info.message(COMMIT_DIRTY_DEFAULT_MESSAGE) if
-            commit_info.message.blank?
-
             git_repo.command('add', '.').execute!
-            run_commit(commit_info)
+            run_commit(asserted_commit_info)
             head_commit
+          end
+
+          private
+
+          def asserted_commit_info
+            r = ::Avm::Scms::CommitInfo.assert(commit_info)
+            r = r.message(COMMIT_DIRTY_DEFAULT_MESSAGE) if r.message.blank?
+            r
           end
         end
       end
