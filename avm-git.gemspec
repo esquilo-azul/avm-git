@@ -11,6 +11,7 @@ Gem::Specification.new do |s|
   s.summary     = 'Put here de description.'
 
   s.files = Dir['{lib,locale}/**/*']
+  s.required_ruby_version = '>= 2.7'
 
   s.add_dependency 'avm', '~> 0.79'
   s.add_dependency 'avm-files', '~> 0.6', '>= 0.6.2'
