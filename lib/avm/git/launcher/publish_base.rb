@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 require 'eac_ruby_utils/simple_cache'
-require 'eac_ruby_utils/simple_cache'
 require 'avm/launcher/publish/base'
 require 'avm/launcher/publish/check_result'
 
