@@ -3,7 +3,7 @@
 require 'avm/git/scms/git'
 require 'eac_ruby_utils/fs/temp'
 
-RSpec.describe ::Avm::Git::Scms::Git::Commit::Deploy, git: true do # rubocop:disable RSpec/MultipleMemoizedHelpers
+RSpec.describe ::Avm::Git::Scms::Git::Commit::Deploy, git: true do
   class << self
     FROM_DEPLOY = %w[a.txt b.txt c.txt appended].freeze # rubocop:disable RSpec/LeakyConstantDeclaration
     NOT_FROM_DEPLOY = %w[to_be_removed].freeze # rubocop:disable RSpec/LeakyConstantDeclaration
@@ -80,11 +80,11 @@ RSpec.describe ::Avm::Git::Scms::Git::Commit::Deploy, git: true do # rubocop:dis
     target_dir.remove
   end
 
-  context 'without run' do # rubocop:disable RSpec/EmptyExampleGroup, RSpec/MultipleMemoizedHelpers
+  context 'without run' do # rubocop:disable RSpec/EmptyExampleGroup
     check_files(false)
   end
 
-  context 'with run' do # rubocop:disable RSpec/EmptyExampleGroup, RSpec/MultipleMemoizedHelpers
+  context 'with run' do # rubocop:disable RSpec/EmptyExampleGroup
     before { instance.run }
 
     check_files(true)
