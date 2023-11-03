@@ -13,10 +13,10 @@ module Avm
         end
 
         def ls
-          git.execute!(['ls-remote', name]).each_line.map do |line|
+          git.execute!(['ls-remote', name]).each_line.to_h do |line|
             x = line.strip.split(/\s+/)
             [x[1], x[0]]
-          end.to_h
+          end
         end
 
         # +git remote add ...+
