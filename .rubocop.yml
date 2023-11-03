@@ -1,10 +1,6 @@
 ---
 inherit_gem:
   eac_ruby_gem_support: ".rubocop.yml"
-Layout/LineContinuationLeadingSpace:
-  Exclude:
-  - lib/avm/git/launcher_stereotypes/git_subrepo/warp.rb
-  - lib/avm/git/revision_test.rb
 Layout/LineEndStringConcatenationIndentation:
   Exclude:
   - lib/avm/git/launcher/warp_base.rb

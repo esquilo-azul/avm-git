@@ -57,8 +57,8 @@ module Avm
       end
 
       def run_test
-        infom "Running test command \"#{::Shellwords.join(test_command_args)}\"" \
-          " on \"#{git_absolute_path}\"..."
+        infom "Running test command \"#{::Shellwords.join(test_command_args)}\" " \
+          "on \"#{git_absolute_path}\"..."
         result = ::EacRubyUtils::Ruby.on_clean_environment { test_command.execute }
         infom 'Test done'
         write_result_cache(result)

@@ -33,8 +33,8 @@ module Avm
                       parent_git_warped.descendant?('HEAD', subrepo_parent_hash)
 
             raise Avm::Launcher::Errors::Base,
-                  "Subrepo parent hash \"#{subrepo_parent_hash}\"" \
-                  " not found in \"#{parent_git_warped}\""
+                  "Subrepo parent hash \"#{subrepo_parent_hash}\" " \
+                  "not found in \"#{parent_git_warped}\""
           end
 
           def subrepo_parent_hash
