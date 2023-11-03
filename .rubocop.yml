@@ -1,9 +1,6 @@
 ---
 inherit_gem:
   eac_ruby_gem_support: ".rubocop.yml"
-Lint/ConstantDefinitionInBlock:
-  Exclude:
-  - spec/lib/avm/git/vendor/github_spec.rb
 Lint/DuplicateRequire:
   Exclude:
   - lib/avm/git/launcher/publish_base.rb
