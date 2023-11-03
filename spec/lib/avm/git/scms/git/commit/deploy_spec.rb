@@ -71,8 +71,8 @@ RSpec.describe ::Avm::Git::Scms::Git::Commit::Deploy, git: true do # rubocop:dis
   let(:target_env) { ::EacRubyUtils::Envs.local }
   let(:instance) do
     described_class.new(commit, target_env, target_dir).append_templatized_directory(appended_dir)
-                   .append_file_content('c.txt', 'Any content')
-                   .variables_source_set(variables_source)
+      .append_file_content('c.txt', 'Any content')
+      .variables_source_set(variables_source)
   end
 
   after do

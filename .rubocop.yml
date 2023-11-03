@@ -1,13 +1,6 @@
 ---
 inherit_gem:
   eac_ruby_gem_support: ".rubocop.yml"
-Layout/MultilineMethodCallIndentation:
-  Exclude:
-  - lib/avm/git/issue/complete/commits.rb
-  - lib/avm/git/organize/repository.rb
-  - lib/avm/git/scms/git/interval.rb
-  - lib/avm/git/scms/git_subtree.rb
-  - spec/lib/avm/git/scms/git/commit/deploy_spec.rb
 Lint/ConstantDefinitionInBlock:
   Exclude:
   - spec/lib/avm/git/vendor/github_spec.rb

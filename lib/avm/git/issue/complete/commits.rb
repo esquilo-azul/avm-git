@@ -33,7 +33,7 @@ module Avm
 
           def commit_parents(commit)
             launcher_git.execute!('log', '--pretty=%P', '-n', '1', commit).split(' ').map(&:strip)
-                        .select(&:present?)
+              .select(&:present?)
           end
         end
       end

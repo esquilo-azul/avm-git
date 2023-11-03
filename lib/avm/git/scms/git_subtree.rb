@@ -15,7 +15,7 @@ module Avm
 
         def valid?
           return false unless ::Avm::Git::Scms::Provider
-                              .new.all.any? { |scm_class| parent_scm.is_a?(scm_class) }
+                                .new.all.any? { |scm_class| parent_scm.is_a?(scm_class) }
 
           (::Avm::Git::Scms::Provider.new.all - [self.class])
             .lazy.map { |scm_class| scm_class.new(path) }.none?(&:valid?)

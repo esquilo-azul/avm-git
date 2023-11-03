@@ -42,7 +42,7 @@ module Avm
 
         def all_references
           ::Pathname.glob("#{refs_root}/**/*").select(&:file?)
-                    .map { |p| p.relative_path_from(refs_root).to_path }
+            .map { |p| p.relative_path_from(refs_root).to_path }
         end
 
         def reference_update_by_ref(reference)

@@ -17,7 +17,7 @@ module Avm
           # @return [Array<Avm::Git::Scms::Git::Commit>]
           def commits
             scm.git_repo.command('log', '--pretty=format:%H', git_commit_interval).execute!
-               .each_line.map { |sha1| scm.commit(sha1.strip) }
+              .each_line.map { |sha1| scm.commit(sha1.strip) }
           end
 
           # @return [String]
