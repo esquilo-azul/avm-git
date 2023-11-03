@@ -25,7 +25,7 @@ module Avm
           end
 
           def pushs_uncached
-            [master_push, remove_branch_push, tag_push].reject(&:nil?)
+            [master_push, remove_branch_push, tag_push].compact
           end
 
           def master_push
