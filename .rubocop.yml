@@ -1,10 +1,6 @@
 ---
 inherit_gem:
   eac_ruby_gem_support: ".rubocop.yml"
-Style/RedundantRegexpEscape:
-  Exclude:
-  - lib/avm/git/launcher/base/subrepo.rb
-  - lib/avm/git/scms/git/commit.rb
 Style/SafeNavigation:
   Exclude:
   - lib/avm/git/launcher/publish_base.rb

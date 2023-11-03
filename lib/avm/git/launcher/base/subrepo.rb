@@ -30,7 +30,7 @@ module Avm
           def subrepo_status_parse_output(output)
             r = {}.with_indifferent_access
             output.each_line do |l|
-              m = /\A([^\:]+)\:(.*)\z/.match(l.strip)
+              m = /\A([^\:]+):(.*)\z/.match(l.strip)
               next unless m && m[2].present?
 
               r[m[1].strip] = m[2].strip
