@@ -11,23 +11,23 @@ RSpec.describe ::Avm::Git::Launcher::Base do
     end
 
     describe '#remote_exist?' do
-      it { expect(repo.remote_exist?('origin')).to eq(false) }
+      it { expect(repo.remote_exist?('origin')).to be(false) }
 
       context 'after remote added' do # rubocop:disable RSpec/ContextWording, :
         before { repo.execute!('remote', 'add', 'origin', 'file:///path/to/remote') }
 
-        it { expect(repo.remote_exist?('origin')).to eq(true) }
+        it { expect(repo.remote_exist?('origin')).to be(true) }
 
         context 'after remote removed' do # rubocop:disable RSpec/ContextWording, :
           before { repo.execute!('remote', 'remove', 'origin') }
 
-          it { expect(repo.remote_exist?('origin')).to eq(false) }
+          it { expect(repo.remote_exist?('origin')).to be(false) }
         end
       end
     end
 
     describe '#assert_remote_url' do
-      it { expect(repo.remote_exist?('origin')).to eq(false) }
+      it { expect(repo.remote_exist?('origin')).to be(false) }
 
       context 'after asserted remote URL "/remote1"' do # rubocop:disable RSpec/ContextWording, :
         before { repo.assert_remote_url('origin', '/remote1') }

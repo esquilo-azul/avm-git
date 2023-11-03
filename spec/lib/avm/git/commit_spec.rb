@@ -50,7 +50,7 @@ RSpec.describe ::Avm::Git::Commit, git: true do
   end
 
   describe '#root_child?' do
-    it { expect(first_commit.root_child?).to eq(true) }
-    it { expect(second_commit.root_child?).to eq(false) }
+    it { expect(first_commit.root_child?).to be(true) }
+    it { expect(second_commit.root_child?).to be(false) }
   end
 end
