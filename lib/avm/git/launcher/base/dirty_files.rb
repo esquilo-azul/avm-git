@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require 'active_support/core_ext/object'
+require 'eac_ruby_utils/core_ext'
 
 module Avm
   module Git
@@ -9,11 +9,11 @@ module Avm
         module DirtyFiles
           delegate :dirty?, to: :eac_git
 
+          # @return [Array<Struct>]
           def dirty_files
             eac_git.dirty_files.map do |df|
-              ::OpenStruct.new(
-                df.to_h.merge(path: df.path.to_path, absolute_path: df.absolute_path.to_path)
-              )
+              df.to_h.merge(path: df.path.to_path, absolute_path: df.absolute_path.to_path)
+                .to_struct
             end
           end
         end

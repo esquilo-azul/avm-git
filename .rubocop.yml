@@ -1,9 +1,6 @@
 ---
 inherit_gem:
   eac_ruby_gem_support: ".rubocop.yml"
-Style/OpenStructUse:
-  Exclude:
-  - lib/avm/git/launcher/base/dirty_files.rb
 Style/RedundantArgument:
   Exclude:
   - lib/avm/git/issue/complete/commits.rb
