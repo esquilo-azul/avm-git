@@ -33,8 +33,9 @@ module Avm
             return
           end
 
-          raise ::Avm::Launcher::Instances::Error, 'Refspec ' \
-            "\"#{source_instance.options.git_current_revision}\" not found in \"#{source_git}\""
+          raise ::Avm::Launcher::Instances::Error,
+                "Refspec \"#{source_instance.options.git_current_revision}\" " \
+                "not found in \"#{source_git}\""
         end
 
         def update

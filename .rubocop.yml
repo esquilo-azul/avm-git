@@ -1,10 +1,6 @@
 ---
 inherit_gem:
   eac_ruby_gem_support: ".rubocop.yml"
-Layout/LineEndStringConcatenationIndentation:
-  Exclude:
-  - lib/avm/git/launcher/warp_base.rb
-  - lib/avm/git/revision_test.rb
 Layout/MultilineMethodCallIndentation:
   Exclude:
   - lib/avm/git/issue/complete/commits.rb
