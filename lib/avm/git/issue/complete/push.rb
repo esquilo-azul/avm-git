@@ -29,7 +29,7 @@ module Avm
           end
 
           def master_push
-            remote_master_hash != branch_hash ? "#{branch_hash}:refs/heads/master" : nil
+            remote_master_hash == branch_hash ? nil : "#{branch_hash}:refs/heads/master"
           end
 
           def remove_branch_push

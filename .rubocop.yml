@@ -1,9 +1,6 @@
 ---
 inherit_gem:
   eac_ruby_gem_support: ".rubocop.yml"
-Style/NegatedIfElseCondition:
-  Exclude:
-  - lib/avm/git/issue/complete/push.rb
 Style/OpenStructUse:
   Exclude:
   - lib/avm/git/launcher/base/dirty_files.rb
