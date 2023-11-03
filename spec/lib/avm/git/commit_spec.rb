@@ -2,7 +2,7 @@
 
 require 'avm/git/commit'
 
-RSpec.describe ::Avm::Git::Commit, git: true do
+RSpec.describe ::Avm::Git::Commit, :git do
   let(:git) { stubbed_git_local_repo }
 
   let(:first_commit_sha1) do
