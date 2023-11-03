@@ -3,7 +3,7 @@
 require 'avm/git/scms/git'
 require 'eac_ruby_utils/fs/temp'
 
-RSpec.describe ::Avm::Git::Scms::Git::Commit::Deploy, :git do
+RSpec.describe Avm::Git::Scms::Git::Commit::Deploy, :git do
   class << self
     FROM_DEPLOY = %w[a.txt b.txt c.txt appended].freeze # rubocop:disable RSpec/LeakyConstantDeclaration
     NOT_FROM_DEPLOY = %w[to_be_removed].freeze # rubocop:disable RSpec/LeakyConstantDeclaration
@@ -46,20 +46,20 @@ RSpec.describe ::Avm::Git::Scms::Git::Commit::Deploy, :git do
   end
 
   let(:appended_dir) do
-    r = ::EacRubyUtils::Fs::Temp.directory
+    r = EacRubyUtils::Fs::Temp.directory
     r.join('appended.template').write('Needs a %%ABC%% value.')
     r
   end
 
   let(:target_dir) do
-    r = ::EacRubyUtils::Fs::Temp.directory
-    ::FileUtils.touch(r.join('to_be_removed').to_path)
+    r = EacRubyUtils::Fs::Temp.directory
+    FileUtils.touch(r.join('to_be_removed').to_path)
     r
   end
 
-  let(:commit) { ::Avm::Git::Scms::Git.new(git.root_path).commit(commit_sha1) }
+  let(:commit) { Avm::Git::Scms::Git.new(git.root_path).commit(commit_sha1) }
   let(:variables_source_class) do
-    ::Class.new do
+    Class.new do
       attr_reader :abc
 
       def initialize(abc)
@@ -68,7 +68,7 @@ RSpec.describe ::Avm::Git::Scms::Git::Commit::Deploy, :git do
     end
   end
   let(:variables_source) { variables_source_class.new('Any value') }
-  let(:target_env) { ::EacRubyUtils::Envs.local }
+  let(:target_env) { EacRubyUtils::Envs.local }
   let(:instance) do
     described_class.new(commit, target_env, target_dir).append_templatized_directory(appended_dir)
       .append_file_content('c.txt', 'Any content')

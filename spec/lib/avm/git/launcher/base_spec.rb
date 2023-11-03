@@ -2,10 +2,10 @@
 
 require 'avm/git/launcher/base'
 
-RSpec.describe ::Avm::Git::Launcher::Base do
+RSpec.describe Avm::Git::Launcher::Base do
   context 'new non-bare repository' do # rubocop:disable RSpec/ContextWording
     let(:repo) do
-      r = described_class.new(::Dir.mktmpdir)
+      r = described_class.new(Dir.mktmpdir)
       r.git
       r
     end

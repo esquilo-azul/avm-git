@@ -1,19 +1,6 @@
 ---
 inherit_gem:
   eac_ruby_gem_support: ".rubocop.yml"
-Style/RedundantConstantBase:
-  Exclude:
-  - Gemfile
-  - lib/avm/git/issue.rb
-  - spec/lib/avm/git/commit/diff_tree_line_spec.rb
-  - spec/lib/avm/git/commit_spec.rb
-  - spec/lib/avm/git/launcher/base_spec.rb
-  - spec/lib/avm/git/scms/git/commit/deploy_spec.rb
-  - spec/lib/avm/git/scms/git_spec.rb
-  - spec/lib/avm/git/scms/git_subrepo_spec.rb
-  - spec/lib/avm/git/vendor/github_spec.rb
-  - spec/rubocop_spec.rb
-  - spec/spec_helper.rb
 Style/RedundantRegexpEscape:
   Exclude:
   - lib/avm/git/launcher/base/subrepo.rb

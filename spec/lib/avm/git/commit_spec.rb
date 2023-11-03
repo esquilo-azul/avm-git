@@ -2,7 +2,7 @@
 
 require 'avm/git/commit'
 
-RSpec.describe ::Avm::Git::Commit, :git do
+RSpec.describe Avm::Git::Commit, :git do
   let(:git) { stubbed_git_local_repo }
 
   let(:first_commit_sha1) do
@@ -38,7 +38,7 @@ RSpec.describe ::Avm::Git::Commit, :git do
         it "find file \"#{filename}\" in commit \"#{commit_name}\"" do
           commit = send(commit_name)
           file = commit.files.find { |f| f.path == filename }
-          expect(file).to be_a(::Avm::Git::Commit::File)
+          expect(file).to be_a(Avm::Git::Commit::File)
         end
       end
     end
