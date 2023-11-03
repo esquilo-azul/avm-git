@@ -9,6 +9,7 @@ module Avm
       enable_speaker
       enable_simple_cache
       attr_accessor :check_remote, :fix_parent
+
       common_constructor :repository
 
       def add_all_subrepos

@@ -9,6 +9,7 @@ module Avm
         class ChangeTracker
           common_constructor :git_scm, :commit_info
           attr_reader :starting_commit
+
           delegate :git_repo, to: :git_scm
 
           def start
