@@ -110,7 +110,7 @@ module Avm
         def remote_sha_uncached
           remote_fetch
           b = sgit.git.branches["#{remote_name}/#{remote_ref}"]
-          b ? b.gcommit.sha : nil
+          b&.gcommit&.sha
         end
 
         def remote_fetch_uncached
