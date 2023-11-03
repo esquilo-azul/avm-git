@@ -24,7 +24,7 @@ module Avm
         end
 
         def out_attr(key, value)
-          out('|' + "#{key}=".white + value)
+          out("|#{"#{key}=".white}#{value}")
         end
       end
     end
