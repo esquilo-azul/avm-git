@@ -14,6 +14,13 @@ module Avm
           subcommands
         end
 
+        COMMAND_ARGUMENT = 'git'
+
+        # @return [String]
+        def self.command_argument
+          COMMAND_ARGUMENT
+        end
+
         def repository_path
           repository_path? ? parsed.path : '.'
         end
