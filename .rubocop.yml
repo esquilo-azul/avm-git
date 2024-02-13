@@ -1,3 +1,6 @@
 ---
 inherit_gem:
   eac_ruby_gem_support: ".rubocop.yml"
+RSpec/IndexedLet:
+  Exclude:
+  - spec/lib/avm/git/runners/base/deploy_spec.rb
