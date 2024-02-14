@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require 'avm/tools/core_ext'
+require 'eac_cli/core_ext'
 require 'clipboard'
 
 module Avm
