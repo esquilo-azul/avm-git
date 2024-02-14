@@ -1,0 +1,6 @@
+---
+Instances:
+  /app1:
+    git_current_revision: master
+  /app2:
+    git_current_revision: master
