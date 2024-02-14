@@ -1,0 +1,6 @@
+---
+Instances:
+  /ruby_gem_stub:
+    git_current_revision: git_current_revision_setted
+    git_publish_remote: git_publish_remote_setted
+    publishable: false

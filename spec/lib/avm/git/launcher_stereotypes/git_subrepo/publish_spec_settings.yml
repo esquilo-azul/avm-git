@@ -1,0 +1,6 @@
+---
+Instances:
+  /app:
+    git_current_revision: master
+  /mylib:
+    git_current_revision: master
