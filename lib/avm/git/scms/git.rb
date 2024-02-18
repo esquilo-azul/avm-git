@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+require 'avm/git/issue/complete'
 require 'avm/git/scms/git_subrepo'
 require 'avm/scms/base'
 require 'eac_ruby_utils/core_ext'
@@ -15,6 +16,12 @@ module Avm
 
         def <=>(other)
           git_repo <=> other.git_repo
+        end
+
+        # @param options [Hash<Symbol, Object>]
+        # @return [Avm::Git::Issues::Complete]
+        def completer(options = {})
+          ::Avm::Git::Issue::Complete.new(self, options)
         end
 
         def git_repo
