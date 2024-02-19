@@ -11,9 +11,7 @@ module Avm
         enable_simple_cache
         enable_speaker
 
-        BRANCH_NAME_ISSUE_ID_PATTERN =
-
-          attr_reader :dir, :skip_validations
+        attr_reader :dir, :skip_validations
 
         def initialize(options)
           consumer = ::EacRubyUtils::OptionsConsumer.new(options)
