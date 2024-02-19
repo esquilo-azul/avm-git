@@ -11,13 +11,19 @@ module Avm
         enable_simple_cache
         enable_speaker
 
-        attr_reader :dir, :skip_validations
+        attr_reader :scm, :skip_validations
 
-        def initialize(options)
+        def initialize(scm, options)
+          @scm = scm
           consumer = ::EacRubyUtils::OptionsConsumer.new(options)
-          @dir, @skip_validations = consumer.consume_all(:dir, :skip_validations)
+          @skip_validations = consumer.consume(:skip_validations)
           validate_skip_validations
           consumer.validate
+        end
+
+        # @return [String]
+        def dir
+          scm.path.to_path
         end
 
         def start_banner
