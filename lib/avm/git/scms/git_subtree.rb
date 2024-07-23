@@ -15,16 +15,18 @@ module Avm
             .lazy.map { |scm_class| scm_class.new(path) }.none?(&:valid?)
         end
 
+        # @return [Boolean]
+        def parent_git_scm?
+          ::Avm::Git::Scms::Provider.new.all.any? { |scm_class| parent_scm.is_a?(scm_class) }
+        end
+
         def update
           # Do nothing
         end
 
         # @return [Boolean]
         def valid?
-          return false unless ::Avm::Git::Scms::Provider
-                                .new.all.any? { |scm_class| parent_scm.is_a?(scm_class) }
-
-          no_other_git_scm?
+          parent_git_scm? && no_other_git_scm?
         end
       end
     end
