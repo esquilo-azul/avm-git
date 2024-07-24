@@ -9,7 +9,7 @@ module Avm
       class Git < ::Avm::Scms::Base
         class Interval < ::Avm::Scms::Interval
           def initialize(scm, from, to)
-            super(scm, from, to)
+            super
             self.from = scm.commit(from)
             self.to = scm.commit(to)
           end

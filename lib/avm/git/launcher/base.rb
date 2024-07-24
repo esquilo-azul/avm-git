@@ -23,7 +23,7 @@ module Avm
         delegate :descendant?, :merge_base, :rev_parse, to: :eac_git
 
         def initialize(path)
-          super(path)
+          super
 
           @eac_git = ::EacGit::Local.new(path)
         end
