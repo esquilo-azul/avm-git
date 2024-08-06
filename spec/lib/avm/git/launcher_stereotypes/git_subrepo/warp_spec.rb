@@ -3,6 +3,9 @@
 require 'avm/git/launcher_stereotypes/git_subrepo/warp'
 
 RSpec.describe Avm::Git::LauncherStereotypes::GitSubrepo::Warp do
+  include_context 'with_config', __FILE__
+  include_context 'with_launcher'
+
   let(:repos) { init_remote('mylib_repos') }
   let(:app1) { init_git('app1') } # rubocop:disable RSpec/IndexedLet
   let(:app2) { init_git('app2') } # rubocop:disable RSpec/IndexedLet
@@ -18,6 +21,7 @@ RSpec.describe Avm::Git::LauncherStereotypes::GitSubrepo::Warp do
 
       touch_commit(app1, 'file2')
       app1.execute!('subrepo', 'clone', repos, 'mylib')
+      launcher_controller.application_source_path('app1', app1.root_path)
 
       touch_commit(app2, 'file3')
       app2.execute!('subrepo', 'clone', repos, 'mylib')

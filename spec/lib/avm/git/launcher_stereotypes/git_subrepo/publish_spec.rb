@@ -4,6 +4,9 @@ require 'avm/git/launcher_stereotypes/git_subrepo/publish'
 require 'avm/launcher/publish/check_result'
 
 RSpec.describe Avm::Git::LauncherStereotypes::GitSubrepo::Publish do
+  include_context 'with_launcher'
+  include_examples 'with_config', __FILE__
+
   describe '#check' do
     context 'with clean context' do
       let(:settings_path) { File.join(__dir__, 'publish_spec_settings.yml') }
@@ -26,6 +29,7 @@ RSpec.describe Avm::Git::LauncherStereotypes::GitSubrepo::Publish do
           r = init_git('app')
           touch_commit(r, 'file2')
           r.execute!('subrepo', 'clone', remote_repos, 'mylib')
+          launcher_controller.application_source_path('app', r.root_path)
           r
         end
 
@@ -48,11 +52,7 @@ RSpec.describe Avm::Git::LauncherStereotypes::GitSubrepo::Publish do
             context 'after reset context' do # rubocop:disable RSpec/ContextWording
               before do
                 sleep 2
-                Avm::Launcher::Context.current = Avm::Launcher::Context.new(
-                  projects_root: Avm::Launcher::Context.current.root.real,
-                  settings_file: settings_path,
-                  cache_root: Dir.mktmpdir
-                )
+                launcher_controller.temp_context(settings_path)
               end
 
               it { check_publish_status(:updated) } # rubocop:disable RSpec/NoExpectationExample
