@@ -5,7 +5,7 @@ require 'avm/git/scms/git'
 require 'avm/git/subrepo_checks'
 require 'avm/scms/auto_commit/rules/unique'
 require 'avm/scms/auto_commit/for_file'
-require 'eac_git/local'
+require 'eac_git'
 
 module Avm
   module Git

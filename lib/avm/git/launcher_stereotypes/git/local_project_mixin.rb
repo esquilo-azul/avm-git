@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require 'eac_git/local'
+require 'eac_git'
 require 'eac_ruby_utils'
 
 module Avm

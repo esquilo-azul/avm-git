@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require 'eac_git/executables'
+require 'eac_git'
 require 'eac_ruby_utils'
 require 'git'
 require 'avm/launcher/paths/real'

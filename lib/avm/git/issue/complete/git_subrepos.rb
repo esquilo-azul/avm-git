@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 require 'avm/git/subrepo_checks'
-require 'eac_git/local'
+require 'eac_git'
 
 module Avm
   module Git
