@@ -3,7 +3,7 @@
 require 'avm/application_scms/base'
 require 'eac_git/local'
 require 'eac_git/remote'
-require 'eac_ruby_utils/core_ext'
+require 'eac_ruby_utils'
 
 module Avm
   module Git

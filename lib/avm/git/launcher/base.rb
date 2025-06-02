@@ -1,8 +1,7 @@
 # frozen_string_literal: true
 
 require 'eac_git/local'
-require 'eac_ruby_utils/core_ext'
-require 'eac_ruby_utils/envs'
+require 'eac_ruby_utils'
 require 'avm/launcher/paths/real'
 require 'avm/git/launcher/error'
 

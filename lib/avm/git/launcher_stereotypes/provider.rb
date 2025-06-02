@@ -3,7 +3,7 @@
 require 'avm/git/launcher_stereotypes/git'
 require 'avm/git/launcher_stereotypes/git_subrepo'
 require 'avm/git/launcher_stereotypes/git_subtree'
-require 'eac_ruby_utils/core_ext'
+require 'eac_ruby_utils'
 
 module Avm
   module Git

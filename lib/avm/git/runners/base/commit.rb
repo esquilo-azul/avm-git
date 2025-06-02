@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 require 'eac_cli/speaker'
-require 'eac_ruby_utils/simple_cache'
+require 'eac_ruby_utils'
 require 'avm/git/launcher/base'
 require 'filesize'
 require 'avm/git/commit'

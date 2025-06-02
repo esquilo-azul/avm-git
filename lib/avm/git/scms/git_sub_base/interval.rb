@@ -3,7 +3,7 @@
 require 'avm/git/scms/git_sub_base/commit'
 require 'avm/scms/base'
 require 'avm/scms/interval'
-require 'eac_ruby_utils/core_ext'
+require 'eac_ruby_utils'
 
 module Avm
   module Git

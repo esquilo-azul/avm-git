@@ -4,7 +4,7 @@ require 'avm/sources/configuration'
 require 'avm/result'
 require 'avm/sources/base'
 require 'avm/sources/tests/builder'
-require 'eac_ruby_utils/fs/temp'
+require 'eac_ruby_utils'
 
 module Avm
   module Git

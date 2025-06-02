@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 require 'avm/git/scms/git'
-require 'eac_ruby_utils/fs/temp'
+require 'eac_ruby_utils'
 
 RSpec.describe Avm::Git::Scms::Git::Commit::Deploy, :git do
   class << self
