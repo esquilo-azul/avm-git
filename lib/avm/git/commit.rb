@@ -43,7 +43,7 @@ module Avm
       end
 
       def root_child?
-        format('%P').blank?
+        format('%P').blank? # rubocop:disable Style/RedundantFormat
       end
 
       private

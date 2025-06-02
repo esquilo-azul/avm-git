@@ -20,7 +20,7 @@ module Avm
 
         attr_reader :eac_git
 
-        delegate :descendant?, :merge_base, :rev_parse, to: :eac_git
+        delegate :merge_base, :rev_parse, to: :eac_git
 
         def initialize(path)
           super
