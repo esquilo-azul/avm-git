@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require 'eac_cli/core_ext'
+require 'eac_cli'
 require 'avm/git/scms/git'
 require 'avm/git/subrepo_checks'
 require 'avm/scms/auto_commit/rules/unique'
