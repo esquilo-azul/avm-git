@@ -30,7 +30,7 @@ module Avm
           validations_banner
         end
 
-        def run
+        def run # rubocop:disable Naming/PredicateMethod
           return false unless valid?
 
           assert_tag

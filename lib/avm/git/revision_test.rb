@@ -75,7 +75,7 @@ module Avm
         root_cache.child('successful')
       end
 
-      def successful_uncached
+      def successful_uncached # rubocop:disable Naming/PredicateMethod
         if options.fetch(:no_cache) || !successful_cache.stored?
           checkout_revision
           run_test
