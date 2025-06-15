@@ -1,8 +1,5 @@
 # frozen_string_literal: true
 
-require 'eac_ruby_utils'
-require 'avm/git/launcher/remote'
-
 module Avm
   module Git
     module Launcher

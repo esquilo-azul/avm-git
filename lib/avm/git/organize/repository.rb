@@ -1,8 +1,5 @@
 # frozen_string_literal: true
 
-require 'avm/git/organize/reference_update'
-require 'eac_ruby_utils'
-
 module Avm
   module Git
     module Organize

@@ -1,7 +1,5 @@
 # frozen_string_literal: true
 
-require 'avm/git/launcher/base'
-
 module Avm
   module Git
     module Launcher

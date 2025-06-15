@@ -1,9 +1,5 @@
 # frozen_string_literal: true
 
-require 'active_support/core_ext/module/delegation'
-require 'eac_ruby_utils'
-require 'avm/git/commit/diff_tree_line'
-
 module Avm
   module Git
     class Commit

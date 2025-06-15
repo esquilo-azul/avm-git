@@ -1,8 +1,5 @@
 # frozen_string_literal: true
 
-require 'avm/git/launcher/warp_base'
-require 'avm/git/launcher/sub_warp_base'
-
 module Avm
   module Git
     module LauncherStereotypes

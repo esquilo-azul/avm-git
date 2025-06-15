@@ -1,9 +1,5 @@
 # frozen_string_literal: true
 
-require 'eac_ruby_utils'
-require 'avm/launcher/publish/base'
-require 'avm/launcher/publish/check_result'
-
 module Avm
   module Git
     module Launcher

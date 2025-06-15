@@ -1,7 +1,5 @@
 # frozen_string_literal: true
 
-require 'avm/result'
-
 module Avm
   module Git
     module Issue

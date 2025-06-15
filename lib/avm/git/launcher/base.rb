@@ -1,10 +1,5 @@
 # frozen_string_literal: true
 
-require 'eac_git'
-require 'eac_ruby_utils'
-require 'avm/launcher/paths/real'
-require 'avm/git/launcher/error'
-
 module Avm
   module Git
     module Launcher

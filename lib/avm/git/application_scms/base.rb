@@ -1,8 +1,5 @@
 # frozen_string_literal: true
 
-require 'avm/application_scms/base'
-require 'eac_ruby_utils'
-
 module Avm
   module Git
     module ApplicationScms

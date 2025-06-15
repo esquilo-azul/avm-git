@@ -1,9 +1,5 @@
 # frozen_string_literal: true
 
-require 'avm/git/launcher/error'
-require 'eac_ruby_utils'
-require 'avm/launcher/stereotype'
-
 module Avm
   module Git
     module LauncherStereotypes

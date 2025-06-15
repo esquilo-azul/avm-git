@@ -1,8 +1,5 @@
 # frozen_string_literal: true
 
-require 'avm/launcher/errors/base'
-require 'avm/launcher/stereotype'
-
 module Avm
   module Git
     module Launcher

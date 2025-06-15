@@ -1,11 +1,5 @@
 # frozen_string_literal: true
 
-require 'eac_cli'
-require 'eac_ruby_utils'
-require 'avm/git/launcher/base'
-require 'filesize'
-require 'avm/git/commit'
-
 module Avm
   module Git
     module Runners

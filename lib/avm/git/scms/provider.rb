@@ -1,10 +1,5 @@
 # frozen_string_literal: true
 
-require 'avm/git/scms/git'
-require 'avm/git/scms/git_subrepo'
-require 'avm/git/scms/git_subtree'
-require 'eac_ruby_utils'
-
 module Avm
   module Git
     module Scms

@@ -1,8 +1,5 @@
 # frozen_string_literal: true
 
-require 'avm/git/scms/git'
-require 'eac_config/node'
-
 module Avm
   module Git
     module Runners

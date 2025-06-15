@@ -1,11 +1,5 @@
 # frozen_string_literal: true
 
-require 'eac_ruby_utils'
-require 'avm/git/launcher/sub_warp_base'
-require 'avm/launcher/errors/base'
-require 'avm/launcher/paths/real'
-require 'avm/git/vendor/github'
-
 module Avm
   module Git
     module LauncherStereotypes

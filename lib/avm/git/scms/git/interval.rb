@@ -1,8 +1,5 @@
 # frozen_string_literal: true
 
-require 'avm/scms/interval'
-require 'eac_ruby_utils'
-
 module Avm
   module Git
     module Scms

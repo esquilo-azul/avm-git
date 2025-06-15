@@ -1,8 +1,5 @@
 # frozen_string_literal: true
 
-require 'avm/git/subrepo_check'
-require 'eac_ruby_utils'
-
 module Avm
   module Git
     class SubrepoChecks

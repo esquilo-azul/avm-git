@@ -1,7 +1,5 @@
 # frozen_string_literal: true
 
-require 'eac_cli'
-
 module Avm
   module Git
     module Runners

@@ -1,9 +1,5 @@
 # frozen_string_literal: true
 
-require 'avm/git/issue/complete/validation'
-require 'avm/result'
-require 'ostruct'
-
 module Avm
   module Git
     module Issue

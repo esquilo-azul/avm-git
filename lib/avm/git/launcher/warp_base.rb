@@ -1,10 +1,5 @@
 # frozen_string_literal: true
 
-require 'avm/git/launcher/mirror_update'
-require 'avm/launcher/instances/error'
-require 'avm/git/vendor/github'
-require 'avm/git/launcher_stereotypes/git/publish'
-
 module Avm
   module Git
     module Launcher
