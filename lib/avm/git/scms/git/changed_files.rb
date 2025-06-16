@@ -11,7 +11,7 @@ module Avm
           # @return [Avm::Git::Scms::Git::ChangedFile]
           def result
             scm.git_repo.dirty_files.map do |dirty_file|
-              ::Avm::Git::Scms::Git::ChangedFile.new(scm, dirty_file.path)
+              ::Avm::Git::Scms::Git::ChangedFile.new(scm, dirty_file)
             end
           end
         end
