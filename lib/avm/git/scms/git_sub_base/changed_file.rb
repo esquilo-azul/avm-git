@@ -6,6 +6,7 @@ module Avm
       class GitSubBase < ::Avm::Scms::Base
         class ChangedFile < ::Avm::Scms::ChangedFile
           common_constructor :scm, :parent_changed_file
+          delegate :action, to: :parent_changed_file
 
           # @return [Pathname]
           def path
