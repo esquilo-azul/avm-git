@@ -7,6 +7,12 @@ module Avm
         private
 
         def parent_instance_uncached
+          if instance.parent.blank?
+            raise ::Avm::Launcher::Errors::Base,
+                  'Instance is a GitSubrepo, but do not have a parent Git repository (Logical ' \
+                  "path: \"#{instance}\", Real path: \"#{instance.real}\")"
+          end
+
           r = find_parent_instance(instance.parent)
           return r if r
 
