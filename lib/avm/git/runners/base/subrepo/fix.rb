@@ -32,7 +32,7 @@ module Avm
               end
             end
 
-            def fix
+            def fix # rubocop:disable Naming/PredicateMethod
               infom 'Checking/fixing...'
               c = new_check(true)
               c.show_result

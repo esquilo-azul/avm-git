@@ -26,7 +26,7 @@ module Avm
           end
 
           def multiple_parents?(commit)
-            commit_parents(commit).count > 1
+            commit_parents(commit).many?
           end
 
           def commit_parents(commit)
