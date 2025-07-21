@@ -35,6 +35,11 @@ module Avm
             end
           end
 
+          # @return [Enumerable<String>]
+          def validation_keys
+            validations.map { |e| e.key.to_s.strip }.sort
+          end
+
           private
 
           def validations_uncached
