@@ -5,8 +5,7 @@ module Avm
     module LauncherStereotypes
       class Provider
         STEREOTYPES = [::Avm::Git::LauncherStereotypes::Git,
-                       ::Avm::Git::LauncherStereotypes::GitSubrepo,
-                       ::Avm::Git::LauncherStereotypes::GitSubtree].freeze
+                       ::Avm::Git::LauncherStereotypes::GitSubrepo].freeze
 
         def all
           STEREOTYPES
