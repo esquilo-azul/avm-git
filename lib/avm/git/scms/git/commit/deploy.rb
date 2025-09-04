@@ -7,6 +7,7 @@ module Avm
         class Commit < ::Avm::Scms::Commit
           class Deploy
             include ::Avm::Files::Appendable
+
             enable_simple_cache
 
             attr_reader :build_dir, :commit, :target_env, :target_path

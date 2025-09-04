@@ -5,6 +5,7 @@ module Avm
     module Launcher
       class PublishBase < ::Avm::Launcher::Publish::Base
         include ::EacRubyUtils::SimpleCache
+
         enable_speaker
 
         CHECKERS = %w[remote_url remote_fetch publish_remote_no_exist remote_equal remote_following
