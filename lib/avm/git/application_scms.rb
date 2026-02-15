@@ -3,7 +3,6 @@
 module Avm
   module Git
     module ApplicationScms
-      require_sub __FILE__
     end
   end
 end

@@ -5,7 +5,6 @@ module Avm
     module Runners
       class Base
         class Subrepo
-          require_sub __FILE__
           runner_with :help, :subcommands do
             desc 'Git-subrepo (https://github.com/ingydotnet/git-subrepo) utilities.'
             subcommands

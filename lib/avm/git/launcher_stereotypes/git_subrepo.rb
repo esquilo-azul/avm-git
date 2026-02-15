@@ -4,7 +4,6 @@ module Avm
   module Git
     module LauncherStereotypes
       class GitSubrepo
-        require_sub __FILE__
         include Avm::Launcher::Stereotype
 
         CONFIG_SUBPATH = '.gitrepo'

@@ -3,7 +3,6 @@
 module Avm
   module Git
     module Organize
-      require_sub __FILE__
     end
   end
 end

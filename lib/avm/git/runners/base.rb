@@ -4,7 +4,6 @@ module Avm
   module Git
     module Runners
       class Base
-        require_sub __FILE__
         runner_with :help, :subcommands do
           desc 'Git utilities for AVM.'
           arg_opt '-C', '--path', 'Path to Git repository.'

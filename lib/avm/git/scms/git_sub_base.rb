@@ -22,8 +22,6 @@ module Avm
         def interval(from, to)
           ::Avm::Git::Scms::GitSubBase::Interval.new(self, from, to)
         end
-
-        require_sub __FILE__
       end
     end
   end

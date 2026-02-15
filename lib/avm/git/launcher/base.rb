@@ -4,7 +4,6 @@ module Avm
   module Git
     module Launcher
       class Base < ::Avm::Launcher::Paths::Real
-        require_sub __FILE__
         enable_simple_cache
         extend ::Avm::Git::Launcher::Base::ClassMethods
         include ::Avm::Git::Launcher::Base::DirtyFiles
