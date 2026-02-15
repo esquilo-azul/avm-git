@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+require 'filesize'
+
 module Avm
   module Git
     module Runners

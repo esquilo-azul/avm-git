@@ -7,7 +7,6 @@ require 'avm'
 require 'eac_cli'
 require 'eac_config'
 require 'eac_git'
-require 'filesize'
 require 'git'
 
 module Avm
