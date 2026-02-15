@@ -56,7 +56,7 @@ module Avm
         def remote_result_uncached
           %w[check_remote_disabled same_ids local_descend_remote remote_descend_local]
             .each do |condition|
-            return send("#{condition}_result") if send("#{condition}?")
+              return send("#{condition}_result") if send("#{condition}?")
           end
 
           ::Avm::Result.error(remote_result_value)
