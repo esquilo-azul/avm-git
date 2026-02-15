@@ -16,6 +16,7 @@ Gem::Specification.new do |s|
   s.add_dependency 'avm', '~> 0.98', '>= 0.98.4'
   s.add_dependency 'eac_git', '~> 0.18', '>= 0.18.1'
   s.add_dependency 'eac_ruby_utils', '~> 0.129', '>= 0.129.1'
+  s.add_dependency 'filesize'
   s.add_dependency 'git', '~> 1.19', '>= 1.19.1'
 
   s.add_development_dependency 'avm-eac_ubuntu_base0', '~> 0.7'
