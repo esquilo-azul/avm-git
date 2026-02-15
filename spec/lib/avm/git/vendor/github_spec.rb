@@ -1,7 +1,5 @@
 # frozen_string_literal: true
 
-require 'avm/git/vendor/github'
-
 RSpec.describe Avm::Git::Vendor::Github do
   describe '#to_ssh_url' do
     SSH_URL = 'git@github.com:esquilo-azul/eac_launcher.git' # rubocop:disable RSpec/LeakyConstantDeclaration, Lint/ConstantDefinitionInBlock

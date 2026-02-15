@@ -1,7 +1,5 @@
 # frozen_string_literal: true
 
-require 'avm/eac_ubuntu_base0/rspec/ssh_docker_server'
-require 'avm/git/runners/base'
 require 'tmpdir'
 
 RSpec.describe Avm::Git::Runners::Base::Deploy, :git do

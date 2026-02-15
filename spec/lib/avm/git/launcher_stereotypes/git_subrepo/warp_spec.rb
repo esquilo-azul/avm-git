@@ -1,7 +1,5 @@
 # frozen_string_literal: true
 
-require 'avm/git/launcher_stereotypes/git_subrepo/warp'
-
 RSpec.describe Avm::Git::LauncherStereotypes::GitSubrepo::Warp do
   include_context 'with_config', __FILE__
   include_context 'with_launcher'

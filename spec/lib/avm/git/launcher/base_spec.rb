@@ -1,7 +1,5 @@
 # frozen_string_literal: true
 
-require 'avm/git/launcher/base'
-
 RSpec.describe Avm::Git::Launcher::Base do
   context 'new non-bare repository' do # rubocop:disable RSpec/ContextWording
     let(:repo) do

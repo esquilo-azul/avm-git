@@ -1,8 +1,5 @@
 # frozen_string_literal: true
 
-require 'avm/git/launcher_stereotypes/git_subrepo/publish'
-require 'avm/launcher/publish/check_result'
-
 RSpec.describe Avm::Git::LauncherStereotypes::GitSubrepo::Publish do
   include_context 'with_launcher'
   include_examples 'with_config', __FILE__
