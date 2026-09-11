@@ -6,7 +6,7 @@ module Avm
       class GitSubBase < ::Avm::Scms::Base
         enable_abstract_methods
 
-        delegate :commit_if_change, :current_milestone_base_commit,
+        delegate :commit_if_change, :current_milestone_base_commit, :git_repo,
                  :head_commit, :reset_and_commit, :run_commit, to: :parent_scm
 
         # @return [Enumerable<Avm::Git::Scms::GitSubBase::ChangedFile>]

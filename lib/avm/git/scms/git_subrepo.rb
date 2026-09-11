@@ -9,11 +9,6 @@ module Avm
           git_subrepo.command('pull').execute!
         end
 
-        # @return [EacGit::Local]
-        def git_repo
-          @git_repo ||= ::EacGit::Local.find(path)
-        end
-
         # @return [EacGit::Local::Subrepo]
         def git_subrepo
           @git_subrepo ||= git_repo.subrepo(subpath)
