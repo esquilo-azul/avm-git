@@ -11,7 +11,7 @@ Gem::Specification.new do |s|
   s.summary     = 'Put here de description.'
 
   s.files = Dir['{lib,locale}/**/*']
-  s.required_ruby_version = '>= 2.7'
+  s.required_ruby_version = '>= 2.7' # rubocop:disable Gemspec/RequiredRubyVersion
 
   s.add_dependency 'avm', '~> 0.98', '>= 0.98.4'
   s.add_dependency 'eac_git', '~> 0.18', '>= 0.18.1'

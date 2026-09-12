@@ -12,7 +12,7 @@ module Avm
           delegate :git_repo, to: :git_scm
           delegate :id, to: :git_commit
 
-          FIXUP_SUBJECT_PATTERN = /\Afixup!/.freeze
+          FIXUP_SUBJECT_PATTERN = /\Afixup!/
 
           # @return [Array<Pathname>]
           def changed_files
