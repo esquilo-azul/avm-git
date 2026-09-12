@@ -18,11 +18,15 @@ module Avm
           end
 
           def subrepo_url(path)
-            File.read(path.subpath(CONFIG_SUBPATH)).each_line do |l|
-              m = /remote\s*=\s(.+)/.match(l)
-              return m[1] if m
-            end
-            raise ::Avm::Git::Launcher::Error.new(path, '"remote = ... " not found')
+            configuration(path).remote_uri ||
+              raise(::Avm::Git::Launcher::Error.new(path, '"remote = ... " not found'))
+          end
+
+          private
+
+          # @return [EacGit::Subrepo::Configuration]
+          def configuration(path)
+            ::EacGit::Subrepo::Configuration.from_file(path.subpath(CONFIG_SUBPATH))
           end
         end
       end
