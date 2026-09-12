@@ -13,9 +13,9 @@ module Avm
             )
           end
 
-          # @return [EacGit::Local::Subrepo::Config]
+          # @return [EacGit::Subrepo::Configuration]
           def config
-            ::EacGit::Local::Subrepo::Config.from_file(config_path)
+            ::EacGit::Subrepo::Configuration.from_file(config_path)
           end
 
           # @return [String]
