@@ -13,13 +13,13 @@ Gem::Specification.new do |s|
   s.files = Dir['{lib,locale}/**/*']
   s.required_ruby_version = '>= 2.7' # rubocop:disable Gemspec/RequiredRubyVersion
 
-  s.add_dependency 'avm', '~> 0.98', '>= 0.98.4'
-  s.add_dependency 'eac_git', '~> 0.18', '>= 0.18.1'
-  s.add_dependency 'eac_ruby_utils', '~> 0.129', '>= 0.129.1'
-  s.add_dependency 'filesize'
+  s.add_dependency 'avm', '~> 0.103'
+  s.add_dependency 'eac_git', '~> 0.21'
+  s.add_dependency 'eac_ruby_utils', '~> 0.134'
+  s.add_dependency 'filesize', '~> 0.2'
   s.add_dependency 'git', '~> 1.19', '>= 1.19.1'
 
-  s.add_development_dependency 'avm-eac_ubuntu_base0', '~> 0.7'
-  s.add_development_dependency 'avm-tools', '~> 0.163', '>= 0.163.6'
-  s.add_development_dependency 'eac_ruby_gem_support', '~> 0.12', '>= 0.12.1'
+  s.add_development_dependency 'avm-eac_ubuntu_base0', '~> 0.7', '>= 0.7.2'
+  s.add_development_dependency 'avm-tools', '~> 0.164', '>= 0.164.1'
+  s.add_development_dependency 'eac_ruby_gem_support', '~> 0.15'
 end
