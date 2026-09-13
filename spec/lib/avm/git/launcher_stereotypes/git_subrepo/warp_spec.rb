@@ -14,10 +14,12 @@ RSpec.describe Avm::Git::LauncherStereotypes::GitSubrepo::Warp do
 
       wc = init_git('mylib_wc')
       touch_commit(wc, 'file1')
+      commit_file(wc, '.avm.yml', '')
       wc.execute!('remote', 'add', 'origin', repos)
       wc.execute!('push', 'origin', 'master')
 
       touch_commit(app1, 'file2')
+      commit_file(app1, '.avm.yml', "subs:\n  include_path: mylib\n")
       app1.execute!('subrepo', 'clone', repos, 'mylib')
       launcher_controller.application_source_path('app1', app1.root_path)
 
