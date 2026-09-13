@@ -18,6 +18,7 @@ RSpec.describe Avm::Git::LauncherStereotypes::GitSubrepo::Publish do
         before do
           wc = init_git('mylib')
           touch_commit(wc, 'file1')
+          commit_file(wc, '.avm.yml', '')
           wc.execute!('remote', 'add', 'publish', remote_repos)
           wc.execute!('push', 'publish', 'master')
         end
@@ -25,6 +26,7 @@ RSpec.describe Avm::Git::LauncherStereotypes::GitSubrepo::Publish do
         let!(:app) do # rubocop:disable RSpec/ScatteredLet
           r = init_git('app')
           touch_commit(r, 'file2')
+          commit_file(r, '.avm.yml', "subs:\n  include_path: mylib\n")
           r.execute!('subrepo', 'clone', remote_repos, 'mylib')
           launcher_controller.application_source_path('app', r.root_path)
           r
