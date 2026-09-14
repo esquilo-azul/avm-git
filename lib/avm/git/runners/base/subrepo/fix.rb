@@ -45,7 +45,7 @@ module Avm
             end
 
             def new_check(fix_parent = false) # rubocop:disable Style/OptionalBooleanParameter
-              r = ::Avm::Git::SubrepoChecks.new(local_repos).add_all_subrepos
+              r = ::Avm::Git::Subrepo::Checks.new(local_repos).add_all_subrepos
               r.fix_parent = fix_parent
               r
             end

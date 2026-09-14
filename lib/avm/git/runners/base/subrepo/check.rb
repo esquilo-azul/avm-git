@@ -26,7 +26,7 @@ module Avm
             private
 
             def subrepo_checks_uncached
-              r = ::Avm::Git::SubrepoChecks.new(local_repos)
+              r = ::Avm::Git::Subrepo::Checks.new(local_repos)
               r.check_remote = parsed.remote?
               r.fix_parent = parsed.fix_parent?
               r.add_all_subrepos if parsed.all?
