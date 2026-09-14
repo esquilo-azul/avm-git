@@ -48,12 +48,13 @@ module Avm
             ['', 'refs/heads/', 'refs/tags/'].map { |prefix| "#{prefix}#{subrepo.remote_branch}" }
           end
 
+          # @return [String, nil]
           def remote_id_uncached
             ls_result = subrepo.remote.ls
             remote_branches.each do |b|
               return ls_result[b] if ls_result[b].present?
             end
-            nil
+            subrepo.remote_branch
           end
 
           def remote_result_uncached
