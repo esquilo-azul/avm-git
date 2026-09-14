@@ -38,7 +38,7 @@ module Avm
 
         def checks_uncached
           subpaths.map do |subpath|
-            ::Avm::Git::SubrepoCheck.new(repository.subrepo(subpath), check_options)
+            ::Avm::Git::Subrepo::Check.new(repository.subrepo(subpath), check_options)
           end
         end
 
