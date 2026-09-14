@@ -50,11 +50,10 @@ module Avm
 
           # @return [String, nil]
           def remote_id_uncached
-            ls_result = subrepo.remote.ls
-            remote_branches.each do |b|
-              return ls_result[b] if ls_result[b].present?
+            subrepo.remote.ls.then do |ls_result|
+              remote_branches.lazy.map { |b| ls_result[b] }.find(&:present?) ||
+                subrepo.remote_branch
             end
-            subrepo.remote_branch
           end
 
           def remote_result_uncached
