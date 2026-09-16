@@ -14,7 +14,7 @@ Gem::Specification.new do |s|
   s.required_ruby_version = '>= 2.7' # rubocop:disable Gemspec/RequiredRubyVersion
 
   s.add_dependency 'avm', '~> 0.103'
-  s.add_dependency 'eac_git', '~> 0.21'
+  s.add_dependency 'eac_git', '~> 0.22'
   s.add_dependency 'eac_ruby_utils', '~> 0.134'
   s.add_dependency 'filesize', '~> 0.2'
   s.add_dependency 'git', '~> 1.19', '>= 1.19.1'
