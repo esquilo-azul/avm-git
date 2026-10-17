@@ -40,7 +40,7 @@ module Avm
             end
 
             # @return [Avm::Git::Scms::Git]
-            def git_scm_uncached
+            memoize def git_scm
               ::Avm::Git::Scms::Git.new(runner_context.call(:git).root_path)
             end
 
@@ -50,7 +50,7 @@ module Avm
               r
             end
 
-            def local_repos_uncached
+            memoize def local_repos
               ::EacGit::Local.new(runner_context.call(:git))
             end
 
