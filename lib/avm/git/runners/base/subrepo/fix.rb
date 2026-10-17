@@ -1,65 +1,74 @@
 # frozen_string_literal: true
 
+require 'shellwords'
+
 module Avm
   module Git
     module Runners
       class Base
         class Subrepo
           class Fix
+            UPSTREAM = 'origin/master'
+
             runner_with :help do
               desc 'Fix git-subrepos\' parent property.'
             end
 
             def run
-              loop do
-                break if fix
+              return unless check_failed?
 
-                amend_each
-                rebase_fixup
-              end
+              rebase
+              fatal_error 'Failed' if check_failed?
             end
 
             private
 
-            def amend_each
-              infov 'Dirty files', local_repos.dirty_files.count
-              local_repos.dirty_files.each do |file|
-                infov '  * Ammending', file.path
-                ::Avm::Scms::AutoCommit::ForFile.new(
-                  git_scm, file.path,
-                  [::Avm::Scms::AutoCommit::Rules::Unique.new]
-                ).run
-              end
+            # @return [Boolean]
+            def check_failed?
+              infom 'Checking...'
+              checks = ::Avm::Git::Subrepo::Checks.new(local_repos).add_all_subrepos
+              checks.show_result
+              checks.result.error?
             end
 
-            def fix # rubocop:disable Naming/PredicateMethod
-              infom 'Checking/fixing...'
-              c = new_check(true)
-              c.show_result
-              !c.result.error?
+            # @param subrepos [Array<EacGit::Local::Subrepo>]
+            # @return [String]
+            def fix_parent_command(subrepos)
+              paths = subrepos.map { |subrepo| subrepo.config_relative_path.to_path.shellescape }
+              paths.map { |path| fix_parent_path_command(path) }
+                .push("git add -- #{paths.join(' ')}", 'git commit --amend --no-edit')
+                .join(' && ')
             end
 
-            # @return [Avm::Git::Scms::Git]
-            memoize def git_scm
-              ::Avm::Git::Scms::Git.new(runner_context.call(:git).root_path)
+            # @param path [String]
+            # @return [String]
+            def fix_parent_path_command(path)
+              "git config --file=#{path} subrepo.parent \"$(git rev-parse HEAD^)\""
             end
 
-            def new_check(fix_parent = false) # rubocop:disable Style/OptionalBooleanParameter
-              r = ::Avm::Git::Subrepo::Checks.new(local_repos).add_all_subrepos
-              r.fix_parent = fix_parent
-              r
+            # @param subrepo [EacGit::Local::Subrepo]
+            # @return [String]
+            def last_config_change(subrepo)
+              local_repos.command('log', '-n', '1', '--pretty=format:%H', '--',
+                                  subrepo.config_relative_path.to_path).execute!.strip
             end
 
+            # @return [EacGit::Local]
             memoize def local_repos
               ::EacGit::Local.new(runner_context.call(:git))
             end
 
-            def rebase_fixup
-              local_repos.command('rebase', '-i', 'origin/master', '--autosquash').envvar(
-                'GIT_SEQUENCE_EDITOR', 'true'
-              ).or(
-                local_repos.command('rebase', '--continue').envvar('GIT_SEQUENCE_EDITOR', 'true')
-              ).system!
+            # @return [void]
+            def rebase
+              ::Avm::Git::Runners::Base::Subrepo::Fix::Rebase.new(
+                local_repos, UPSTREAM,
+                subrepos_by_last_config_change.transform_values { |v| fix_parent_command(v) }
+              ).perform
+            end
+
+            # @return [Hash<String, Array<EacGit::Local::Subrepo>>]
+            memoize def subrepos_by_last_config_change
+              local_repos.subrepos.group_by { |subrepo| last_config_change(subrepo) }
             end
           end
         end
