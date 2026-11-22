@@ -13,7 +13,7 @@ module Avm
         def add_all_subrepos
           add_subrepos(
             *repository.command('subrepo', '-q', 'status').execute!.split("\n").map(&:strip)
-            .select(&:present?)
+            .select(&:present?) # rubocop:disable Rails/CompactBlank
           )
         end
 
